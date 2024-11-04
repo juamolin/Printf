@@ -58,3 +58,18 @@ int	ft_putnbr(int n)
 	n_print += ft_putchar(n % 10 + '0');
 	return (n_print);
 }
+
+int	ft_unsigned_print(unsigned int n)
+{
+	int	n_print;
+	char	c;
+
+	n_print = 0;
+	if (n > 9)
+	{
+		n_print += ft_unsigned_print(n / 10);
+	}
+	c = (n % 10) + '0';
+	n_print += write(1, &c, 1)
+	return (n_print);
+}
