@@ -15,7 +15,7 @@ NAME = libftprintf.a
 CC = gcc
 CFLAGS = -Wall -Werror -Wextra
 
-SRC = ft_putchar.c ft_putstr.c ft_putnbr.c ft_printf.c ft_printf_functions.c
+SRC = ft_printf.c ft_printf_functions.c
 
 OBJS = $(SRC:.c=.o)
 
