@@ -6,7 +6,7 @@
 /*   By: juamolin <juamolin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/01 10:09:36 by juamolin          #+#    #+#             */
-/*   Updated: 2024/11/02 20:39:48 by juamolin         ###   ########.fr       */
+/*   Updated: 2024/11/11 16:54:48 by juamolin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,17 @@ static int	ft_format(va_list va, char str)
 		print += ft_putchar(va_arg(va, int));
 	else if (str == 's')
 		print += ft_putstr(va_arg(va, char *));
+	else if (str == 'p')
+		print += ft_ptr(va_arg(va, unsigned long));
 	else if (str == 'd' || str == 'i')
 		print += ft_putnbr(va_arg(va, int));
+	else if (str == 'u')
+		print += ft_putnbr_extra(va_arg(va, unsigned long), "0123456789");
+	else if (str == 'x')
+		print
+			+= ft_putnbr_extra(va_arg(va, unsigned long), "0123456789abecdef");
+	else if (str == 'X')
+		print += ft_putnbr_extra(va_arg(va, unsigned long), "0123456789ABCDEF");
 	else if (str == '%')
 		print += ft_putstr("%");
 	return (print);

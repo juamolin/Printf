@@ -6,7 +6,7 @@
 /*   By: juamolin <juamolin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/30 15:40:08 by juamolin          #+#    #+#             */
-/*   Updated: 2024/11/02 13:31:41 by juamolin         ###   ########.fr       */
+/*   Updated: 2024/11/11 16:52:07 by juamolin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,17 +59,32 @@ int	ft_putnbr(int n)
 	return (n_print);
 }
 
-int	ft_unsigned_print(unsigned int n)
+int	ft_putnbr_extra(unsigned int n, char *b)
 {
-	int	n_print;
-	char	c;
+	int				n_print;
+	unsigned long	len;
 
+	len = 0;
+	while (b[len])
+		len++;
 	n_print = 0;
-	if (n > 9)
-	{
-		n_print += ft_unsigned_print(n / 10);
-	}
-	c = (n % 10) + '0';
-	n_print += write(1, &c, 1)
+	if (n >= len)
+		n_print += ft_putnbr_extra(n / len, b);
+	n_print += ft_putchar(b[n % len]);
 	return (n_print);
+}
+
+int	ft_ptr(unsigned long ptr)
+{
+	int	n;
+
+	if (!ptr)
+	{
+		write (1, "(nil)", 5);
+		return (5);
+	}
+	n = 0;
+	n += ft_putstr ("0x");
+	n += ft_putnbr_extra(ptr, "01234567890abcdef");
+	return (n);
 }
