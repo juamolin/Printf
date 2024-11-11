@@ -22,6 +22,6 @@ int	ft_putstr(const char *str);
 int	ft_putnbr(int n);
 int	ft_printf(const char *fotmat, ...);
 int	ft_ptr(unsigned long ptr);
-int	ft_putnbr_extra(unsigned int n, char *b);
+int	ft_putnbr2(unsigned long n, char *base);
 
 #endif

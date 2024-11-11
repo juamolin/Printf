@@ -59,18 +59,18 @@ int	ft_putnbr(int n)
 	return (n_print);
 }
 
-int	ft_putnbr_extra(unsigned int n, char *b)
+int	ft_putnbr2 (unsigned long nbr, char *base)
 {
 	int				n_print;
 	unsigned long	len;
 
 	len = 0;
-	while (b[len])
+	while (base[len])
 		len++;
 	n_print = 0;
-	if (n >= len)
-		n_print += ft_putnbr_extra(n / len, b);
-	n_print += ft_putchar(b[n % len]);
+	if (nbr >= len)
+		n_print += ft_putnbr2(nbr / len, base);
+	n_print += ft_putchar(base[nbr % len]);
 	return (n_print);
 }
 
@@ -85,6 +85,6 @@ int	ft_ptr(unsigned long ptr)
 	}
 	n = 0;
 	n += ft_putstr ("0x");
-	n += ft_putnbr_extra(ptr, "01234567890abcdef");
+	n += ft_putnbr2(ptr, "0123456789abcdef");
 	return (n);
 }

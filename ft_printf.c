@@ -26,12 +26,11 @@ static int	ft_format(va_list va, char str)
 	else if (str == 'd' || str == 'i')
 		print += ft_putnbr(va_arg(va, int));
 	else if (str == 'u')
-		print += ft_putnbr_extra(va_arg(va, unsigned long), "0123456789");
+		print += ft_putnbr2(va_arg(va, unsigned int), "0123456789");
 	else if (str == 'x')
-		print
-			+= ft_putnbr_extra(va_arg(va, unsigned long), "0123456789abecdef");
+		print += ft_putnbr2(va_arg(va, unsigned int), "0123456789abcdef");
 	else if (str == 'X')
-		print += ft_putnbr_extra(va_arg(va, unsigned long), "0123456789ABCDEF");
+		print += ft_putnbr2(va_arg(va, unsigned int), "0123456789ABCDEF");
 	else if (str == '%')
 		print += ft_putstr("%");
 	return (print);
