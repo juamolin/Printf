@@ -59,7 +59,7 @@ int	ft_putnbr(int n)
 	return (n_print);
 }
 
-int	ft_putnbr2 (unsigned long nbr, char *base)
+int	ft_putnbr2(unsigned long nbr, char *base)
 {
 	int				n_print;
 	unsigned long	len;
